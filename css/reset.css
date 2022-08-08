@@ -1,0 +1,35 @@
+/* 清除默认边距 */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* 重置列表元素 */
+ul,ol{
+    list-style: none;
+}
+
+/* 重置文本格式元素 */
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+h1{font-size: 18px;}
+h2{font-size: 16px;}
+h3{font-size: 14px;}
+h4,h5,h6{font-size: 12px;}
+
+a:link:hover{
+    color:lightgreen !important;
+    text-decoration: underline;
+}
+
+
+/* 取除外轮廓 */
+input{
+    outline:none;
+}
+
+
+

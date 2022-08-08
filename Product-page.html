@@ -5,11 +5,187 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <div class="wrapper">
+    <!-- 最外层的包裹元素 -->
+    <div id="wrapper">
+        <!-- 头部 -->
+        <header id="header">
+            <!-- 上面部分 -->
+            <div class="headTop">
+                <!-- 版心元素 -->
+                <div class="headTopMain">
+                    <!-- 左侧 -->
+                    <div class="left">
+                        <h5>欢迎来到尚优选！请</h5>
+                        <p>
+                            <a href="">登录</a>
+                            <a href="">注册</a>
+                        </p>
+                    </div>
 
+                    <!-- 右侧 -->
+                    <div class="right">
+                        <nav>
+                            <a href="javascript:;">我的订单</a>
+                            <a href="javascript:;">我的购物车</a>
+                            <a href="javascript:;">我的尚优选</a>
+                            <a href="javascript:;">尚优选会员</a>
+                            <a href="javascript:;">企业采购</a>
+                            <a href="javascript:;">关注尚优选</a>
+                            <a href="javascript:;">合作招商</a>
+                            <a href="javascript:;">商家后台</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 下面部分 -->
+            <div class="headBottom">
+                <!-- 版心元素 -->
+                <div class="headBottomMain">
+                    <!-- logo -->
+                    <h1 class="logo">
+                        <a href="javascript:;">
+                            <img src="images/logo.png" alt="">
+                        </a>
+                    </h1>
+                    <!-- 搜索框 -->
+                    <div class="search">
+                        <input type="text" placeholder="请输入搜索内容 ">
+                        <input type="submit" value="搜索">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 头部结束 -->
+        <!-- 分类导航开始 -->
+        <div id="navWrap">
+            <!-- 版心元素 -->
+            <div class="navWrapMain">
+                <a href="javascript:;">全部商品分类</a>
+                <a href="javascript:;">服装城</a>
+                <a href="javascript:;">美妆馆</a>
+                <a href="javascript:;">尚优选超市</a>
+                <a href="javascript:;">全球购</a>
+                <a href="javascript:;">闪购</a>
+                <a href="javascript:;">团购</a>
+                <a href="javascript:;">有趣</a>
+                <a href="javascript:;">秒杀</a>                
+            </div>
+        </div>
+        <!-- 分类导航结束 -->
+
+
+        <!-- 内容区开始 -->
+        <div id="content">
+            <!-- 版心元素 -->
+            <div class="contentMain">
+                <!-- 路径导航 -->
+                <div id="navPath">
+                <!--   <a href="javascript:;">手机、数码、通讯</a>
+                    <i>/</i>
+                    <a href="javascript:;">手机</a>
+                    <i>/</i>
+                    <a >iphone6S系</a>
+                    -->
+                </div>
+                <!-- 路径导航结束 -->
+
+                <!-- 中间区域开始 -->
+                <div id="center">
+                    <!-- 左侧放大镜开始 -->
+                    <div id="left">
+                        <!-- 上边 -->
+                        <div id="leftTop">
+                            <!-- 小图框 -->
+                            <div id="smallPic">
+                                <!-- 小图片 -->
+                                <img src="images/s1.jpg" alt="">
+                                <!-- 蒙版元素 -->
+                            </div>
+
+                            <!-- 大图框 -->
+                            
+                        </div>
+                        <!-- 下边 -->
+                        <div id="leftBottom">
+                            <a href="javascript:;" class="pre"><</a>
+                            <div id="piclist">
+                                <ul>
+                                    
+                                </ul>
+                            </div>
+                            <a href="javascript:;" class="next">></a>
+
+                            
+                        </div>
+                    </div>
+                    <!-- 左侧放大镜结束 -->
+
+                    <!-- 右侧商品详情区域开始 -->
+                    <div id="right">
+                        <!-- 商品详情开始 -->
+                        <div class="rightTop">
+                            <h3>花呗分期Apple/苹.果6s plus正品苹.果6s手机6sp全网通7代7plus7P</h3>
+                            <p> 在确认收货 15 天内，如有商品质量问题、描述不符或未收到货等，您有权申请退款或退货，来回邮费由卖家承担。</p>
+                            <div class="priceWrap">
+                                <!-- 上部 -->
+                                <div class="priceTop">
+                                    <span>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格</span>
+                                    <div class="price">
+                                        <span>￥</span>
+                                        <p>5299</p>
+                                        <i>降价通知</i>
+                                    </div>
+                                    <p>
+                                        <span>累加评价</span>
+                                        <span>670000</span>
+                                    </p>
+                                </div>
+                                <!-- 下部 -->
+                                <div class="priceBottom">
+                                    <span>促&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;销</span>
+                                    <p>
+                                        <span>加价购</span>
+                                        <span>慢500 减50，满5999元 减800元，满6699元 减900元，满7999元 减1100元 即可在购物车换购热销商品！</span>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="support">
+                                <span>支&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;持</span>
+                                <p>以旧换新，闲置手机回收 4G套餐超值抢</p>
+                            </div>
+
+                            <div class="address">
+                                <span>配&nbsp;送&nbsp;至</span>
+                                <p>福建省 福州市 福清市</p>
+                            </div>
+                        </div>
+
+
+                        
+                        <!-- 商品参数开始 -->
+                        <div class="rightBottom">
+
+                        </div>
+
+                        </div>
+                    </div>
+                    <!-- 右侧商品详情区域结束 -->
+                </div>
+                <!-- 中间区域结束 -->
+            </div>
+        </div>
+        <!-- 内容区结束 -->
     </div>
+
+
+
+    <script src="js/data.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
