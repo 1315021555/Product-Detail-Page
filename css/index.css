@@ -378,3 +378,47 @@
 #wrapper #content .contentMain #center #right .rightBottom .chooseWrap dl dd:hover {
   cursor: pointer;
 }
+#wrapper #content .contentMain #center #right .addCart {
+  position: relative;
+}
+#wrapper #content .contentMain #center #right .addCart .count {
+  position: relative;
+  width: 55px;
+  margin-right: 15px;
+}
+#wrapper #content .contentMain #center #right .addCart .count input {
+  width: 38px;
+  height: 37px;
+  border: 1px solid #ddd;
+  color: #555;
+}
+#wrapper #content .contentMain #center #right .addCart .count a {
+  width: 15px;
+  height: 18px;
+  color: #666;
+  background-color: #f1f1f1;
+  position: absolute;
+  right: 1px;
+  text-align: center;
+  line-height: 18px;
+  border: 1px #ddd solid;
+}
+#wrapper #content .contentMain #center #right .addCart .count a:first-child {
+  top: 0px;
+}
+#wrapper #content .contentMain #center #right .addCart .count a:last-child {
+  top: 20px;
+  border-top: 0;
+}
+#wrapper #content .contentMain #center #right .addCart button {
+  padding-left: 25px;
+  padding-right: 25px;
+  height: 36px;
+  font-size: 16px;
+  background-color: #e1251b;
+  color: #fff;
+  border: none;
+  position: absolute;
+  left: 80px;
+  top: 0px;
+}
