@@ -322,3 +322,59 @@
   color: #999;
   float: left;
 }
+#wrapper #content .contentMain #center #right .rightBottom {
+  margin-top: 10px;
+  line-height: 28px;
+  font-size: 13px;
+}
+#wrapper #content .contentMain #center #right .rightBottom .choose::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+#wrapper #content .contentMain #center #right .rightBottom .choose .mark {
+  height: 30px;
+  background-color: snow;
+  border: 1px solid #ddd;
+  padding: 0 20px;
+  margin-right: 20px;
+  text-align: center;
+  float: left;
+}
+#wrapper #content .contentMain #center #right .rightBottom .choose .mark a {
+  color: red;
+  margin-left: 20px;
+}
+#wrapper #content .contentMain #center #right .rightBottom .choose .mark a:hover {
+  cursor: pointer;
+}
+#wrapper #content .contentMain #center #right .rightBottom .chooseWrap dl {
+  margin-top: 13px;
+  margin-bottom: 13px;
+}
+#wrapper #content .contentMain #center #right .rightBottom .chooseWrap dl::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+#wrapper #content .contentMain #center #right .rightBottom .chooseWrap dl dt {
+  float: left;
+  margin-right: 15px;
+}
+#wrapper #content .contentMain #center #right .rightBottom .chooseWrap dl dd {
+  float: left;
+  margin-right: 5px;
+  color: #666;
+  line-height: 24px;
+  padding: 2px 14px;
+  border-top: 1px solid #eee;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+}
+#wrapper #content .contentMain #center #right .rightBottom .chooseWrap dl .checkedDd {
+  color: #e12228;
+}
+#wrapper #content .contentMain #center #right .rightBottom .chooseWrap dl dd:hover {
+  cursor: pointer;
+}

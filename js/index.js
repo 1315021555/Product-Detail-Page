@@ -9,6 +9,10 @@ window.onload = function(){
     thumbnailData();
     thumbnailClick();
     thumbnailLeftRightClick();
+    rightTopData();
+    rightBottomData();
+    clickddBind();
+
 
     //路径导航的数据渲染
     function navPathDataBind(){
@@ -214,6 +218,191 @@ window.onload = function(){
         }
     }
 
+    //动态渲染右侧商品详情
+    function rightTopData(){
+        /*
+        思路：
+        1、查找rightTop元素
+        2、获取goodsDetail信息
+        3、建立一个字符串变量，将原来的布局结构贴进来，将对应的数据放入对应的元素位置实现动态渲染 
+         */
+
+        //1、获取元素
+        var rightTop = document.querySelector('#wrapper #content .contentMain #center #right .rightTop');
+        console.log(rightTop);
+
+        //2、获取数据
+        var goodsDetail = goodData.goodsDetail;
+        console.log(goodsDetail);
+
+        //创建替换字符串变量
+        var substitution = `       <h3>${goodsDetail.title}</h3>
+        <p> ${goodsDetail.tip}</p>
+        <div class="priceWrap">
+            <div class="priceTop">
+                <span>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格</span>
+                <div class="price">
+                    <span>￥</span>
+                    <p>${goodsDetail.price}</p>
+                    <i>降价通知</i>
+                </div>
+                <p>
+                    <span>累加评价</span>
+                    <span>${goodsDetail.evaluateNum}</span>
+                </p>
+            </div>
+            <div class="priceBottom">
+                <span>促&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;销</span>
+                <p>
+                    <span>${goodsDetail.promoteSale.type}</span>
+                    <span>${goodsDetail.promoteSale.content}</span>
+                </p>
+            </div>
+        </div>
+        <div class="support">
+            <span>支&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;持</span>
+            <p>${goodsDetail.support}</p>
+        </div>
+
+        <div class="address">
+            <span>配&nbsp;送&nbsp;至</span>
+            <p>${goodsDetail.address}</p>
+        </div>`;
+
+        //4、重新渲染rightTop元素
+        rightTop.innerHTML = substitution;
+    }
+
+    //动态渲染商品参数
+    function rightBottomData(){
+        var chooseWrap = document.querySelector('#wrapper #content .contentMain #center #right .rightBottom .chooseWrap');
+        //console.log(chooseWrap);
+
+        var crumbData = goodData.goodsDetail.crumbData;
+        //console.log(crumbData);
+
+        for (var i=0;i<crumbData.length;i++){
+            //创建dl元素
+            var dlNode = document.createElement('dl');
+            //创建dt
+            var dtNode = document.createElement('dt');
+            dtNode.innerText = crumbData[i].title;
+            //dl追加dt
+            dlNode.appendChild(dtNode);
+            //创建dd，并且让dl追加dd
+            for (var j =0;j<crumbData[i].data.length;j++){
+                var ddNode = document.createElement('dd');
+                ddNode.innerText = crumbData[i].data[j].type;
+                //为每个dd绑定changePrice属性
+                ddNode.setAttribute('priceChange',crumbData[i].data[j].changePrice);
+                dlNode.appendChild(ddNode);
+
+                
+            }
+            //chooseWrap追加dl
+            chooseWrap.appendChild(dlNode);
+
+        }
+    }
+
+    //点击商品参数的颜色排他效果,并且动态产生choose区域中的mark元素
+    function clickddBind(){
+        var dlNode = document.querySelectorAll('#wrapper #content .contentMain #center #right .rightBottom .chooseWrap dl');
+         //存放choose内容
+        var arr = new Array(dlNode.length);
+        var choose = document.querySelector('#wrapper #content .contentMain #center #right .rightBottom .choose');
+        arr.fill(0);
+        //console.log(dlNode);
+        for (let i=0;i<dlNode.length;i++){
+            //每一个dl中，先默认第一个dd为选中状态
+            let ddNode = dlNode[i].querySelectorAll('dd');
+            ddNode[0].className = 'checkedDd';
+            //为每个dd绑定onclick事件
+            for (let j = 0;j<ddNode.length;j++){
+                ddNode[j].onclick = function(){
+                    //console.log(ddNode[j]);
+                    //获取前一个选中的元素，设置为未选中
+                    let preChecked = dlNode[i].querySelector('.checkedDd');
+                   //console.log(preChecked);
+                    preChecked.className ='';
+                    //再设置点击元素为选中状态
+                    ddNode[j].className='checkedDd';
+
+                    //动态产生choose区域中的mark标记,存入arr数组
+                    //console.log(ddNode[j].innerText);
+                    arr[i] = this;
+                    //console.log(arr);
+
+                    //先清空choose内容
+                    choose.innerText='';
+                    //遍历arr数组，将非0元素的值写入到mark元素当中
+                    arr.forEach((value,index)=> {
+                        if (value){
+                            //若存在选中的参数，创建markDiv
+                            var markDiv =document.createElement('div');
+                            markDiv.className = 'mark';
+                            markDiv.innerText = value.innerText;
+                            //创建a
+                            var aNode = document.createElement('a');
+                            aNode.setAttribute('index',index);
+                            aNode.innerText = 'X';
+                            //追加
+                            markDiv.appendChild(aNode);
+                            choose.appendChild(markDiv);
+                        }
+                    });
+
+
+                    //获取所有a标签元素，并且循环发生点击事件
+                    var aNodes = document.querySelectorAll('#wrapper #content .contentMain #center #right .rightBottom .choose .mark a');
+                    for (var n = 0;n<aNodes.length;n++){
+                        aNodes[n].onclick =function(){
+                            var idx = this.getAttribute('index');
+                            arr[idx] =0;
+                            
+                            //查找所取消参数所在的dl下的dd
+                            //并且删除所有dd的选中状态
+                            var ddlist = dlNode[idx].querySelectorAll('dd');
+                            ddlist.forEach(function(value){
+                                value.className='';
+                            })
+                            //恢复默认的选中状态
+                            ddlist[0].className='checkedDd';
+
+
+                            //删除点击的a对应的markDiv元素
+                            choose.removeChild(this.parentNode);
+                            priceFluctuate();
+
+                        }
+                    }
+                    priceFluctuate();
+                }
+            }
+        }
+        
+
+    }
+
+    //价格变动函数:在点击dd和a时调用
+    function priceFluctuate(){
+        //1、获取所有选中的dd元素对应的changePrice之和
+        var checkedDd = document.querySelectorAll('.checkedDd');
+        //console.log(checkedDd);
+        let totalChange = 0;
+        for (var i=0;i<checkedDd.length;i++){
+            //console.log(checkedDd[i].getAttribute('priceChange'));
+            totalChange += Number(checkedDd[i].getAttribute('priceChange'));
+        }
+        console.log(totalChange);
+        
+        //获取price元素，更新值
+        var prePrice = goodData.goodsDetail.price;
+        var price = document.querySelector('.price p');
+        price.innerText = Number(prePrice+totalChange);
+        console.log(price.innerText);
+
+    }
 
 
     
